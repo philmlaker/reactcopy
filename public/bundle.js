@@ -19808,7 +19808,7 @@
 	      React.createElement(
 	        "div",
 	        { className: "col-md-6" },
-	        React.createElement(Results, { results: this.state.results })
+	        React.createElement(Results, { results: this.state.results, searchTopic: this.state.searchTopic })
 	      )
 	    );
 	  }
@@ -19842,9 +19842,10 @@
 
 			console.log("this is a topic from helpers:" + topic);
 			return _axios2.default.get(queryURL + topic).then(function (response) {
+				response = response.data.response.docs[0].headline.main;
 				response = JSON.stringify(response);
 				console.log("this is a response from helpers:" + response);
-				return response.data;
+				return response;
 			});
 		}
 

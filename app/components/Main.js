@@ -7,7 +7,7 @@ import helpers from './utils/helpers.js';
 var Main = React.createClass({
 
 getInitialState: function() {
-   return {searchTopic: "", results: ""}
+   return {searchTopic: "", results: ""};
 },
 
 componentDidUpdate: function(prevProps, prevStates){
@@ -48,7 +48,7 @@ componentDidUpdate: function(prevProps, prevStates){
               </div>
 
               <div className="col-md-6">
-                <Results results={this.state.results}/>
+                <Results results={this.state.results} searchTopic={this.state.searchTopic}/>
 
               </div>
           </div>
