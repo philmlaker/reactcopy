@@ -19842,10 +19842,12 @@
 
 			console.log("this is a topic from helpers:" + topic);
 			return _axios2.default.get(queryURL + topic).then(function (response) {
-				response = response.data.response.docs[0].headline.main;
-				response = JSON.stringify(response);
-				console.log("this is a response from helpers:" + response);
-				return response;
+				for (var i = 0; i < 5; i++) {
+					response = response.data.response.docs[i].headline.main;
+					response = JSON.stringify(response);
+					console.log("this is a response from helpers:" + response);
+					return response;
+				};
 			});
 		}
 
@@ -21182,9 +21184,19 @@
 	        "div",
 	        { className: "panel-body text-center" },
 	        React.createElement(
+	          "h4",
+	          null,
+	          " Search Topic: "
+	        ),
+	        React.createElement(
 	          "p",
 	          null,
 	          this.props.searchTopic
+	        ),
+	        React.createElement(
+	          "h4",
+	          null,
+	          " Results: "
 	        ),
 	        React.createElement(
 	          "p",
